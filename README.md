@@ -23,7 +23,7 @@ Black:
 ```
 
 ## How to play
-On each turn, type the coordinate where you want to place the stone.
-For example, if you want to place the stone at the upper left-hand corner, type ```a1```.
+On each turn, type the coordinate where you want to place the disc.
+For example, if you want to place the disc at the upper left-hand corner, type ```a1```.
 
 If you want to stop the game, type ```exit```.

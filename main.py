@@ -49,7 +49,7 @@ class Othello:
                 depth += 1
         return flippable
     
-    def possible_cells(self):
+    def possible_discs(self):
         possible = []
 
         for x in range(BOARD_SIZE):
@@ -100,10 +100,10 @@ class Othello:
             print()
     
     def end(self):
-        if self.possible_cells() != []:
+        if self.possible_discs() != []:
             return False
         self.player *= -1
-        if self.possible_cells() == []:
+        if self.possible_discs() == []:
             self.player *= -1
             return True
         else:
@@ -129,7 +129,7 @@ while True:
         break
 
     while True:
-        possible = othello.possible_cells()
+        possible = othello.possible_discs()
         if possible == []:
             print("Pass")
             othello.player *= -1
