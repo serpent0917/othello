@@ -8,7 +8,7 @@ Type this command on your terminal.
 ```
 $ python3 main.py
 ```
-Then you can see a othello board like this
+Then you can see the othello board like this
 ```
   a b c d e f g h 
 1 · · · · · · · · 
