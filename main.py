@@ -47,6 +47,7 @@ class Othello:
                     tmp.append([nx, ny])
 
                 depth += 1
+        
         return flippable
     
     def possible_discs(self):
