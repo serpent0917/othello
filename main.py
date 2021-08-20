@@ -84,6 +84,8 @@ class Othello:
         self.grid[x][y] *= -1
     
     def display(self):
+        possible = self.possible_discs()
+
         print("  ", end = "")
         for y in range(BOARD_SIZE):
             print(chr(ord("a") + y), end = " ")
@@ -92,7 +94,9 @@ class Othello:
         for x in range(BOARD_SIZE):
             print(x + 1, end = " ")
             for y in range(BOARD_SIZE):
-                if self.grid[x][y] == BLACK:
+                if [x, y] in possible:
+                    print("*", end = " ")
+                elif self.grid[x][y] == BLACK:
                     print("◯", end = " ")
                 elif self.grid[x][y] == WHITE:
                     print("●", end = " ")
@@ -132,7 +136,10 @@ while True:
     while True:
         possible = othello.possible_discs()
         if possible == []:
-            print("Pass")
+            if othello.player == BLACK:
+                print("Black: pass")
+            else:
+                print("White: pass")
             othello.player *= -1
             break
 

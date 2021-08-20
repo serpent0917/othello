@@ -13,10 +13,10 @@ Then you can see the othello board like this
   a b c d e f g h 
 1 · · · · · · · · 
 2 · · · · · · · · 
-3 · · · · · · · · 
-4 · · · ● ◯ · · · 
-5 · · · ◯ ● · · · 
-6 · · · · · · · · 
+3 · · · * · · · · 
+4 · · * ● ◯ · · · 
+5 · · · ◯ ● * · · 
+6 · · · · * · · · 
 7 · · · · · · · · 
 8 · · · · · · · · 
 Black: 
@@ -24,6 +24,7 @@ Black:
 
 ## How to play
 On each turn, type the coordinate where you want to place the disc.
+You can place the disc at ```*```.
 For example, if you want to place the disc at the upper left-hand corner, type ```a1```.
 
 If you want to stop the game, type ```exit```.
