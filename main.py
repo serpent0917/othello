@@ -50,7 +50,7 @@ class Othello:
         
         return flippable
     
-    def possible_discs(self):
+    def possible_coordinates(self):
         possible = []
 
         for x in range(BOARD_SIZE):
@@ -84,7 +84,7 @@ class Othello:
         self.grid[x][y] *= -1
     
     def display(self):
-        possible = self.possible_discs()
+        possible = self.possible_coordinates()
 
         print("  ", end = "")
         for y in range(BOARD_SIZE):
@@ -105,10 +105,10 @@ class Othello:
             print()
     
     def end(self):
-        if self.possible_discs() != []:
+        if self.possible_coordinates() != []:
             return False
         self.player *= -1
-        if self.possible_discs() == []:
+        if self.possible_coordinates() == []:
             self.player *= -1
             return True
         else:
@@ -135,7 +135,7 @@ def main():
             break
 
         while True:
-            possible = othello.possible_discs()
+            possible = othello.possible_coordinates()
             if possible == []:
                 if othello.player == BLACK:
                     print("Black: pass")
