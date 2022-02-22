@@ -58,7 +58,7 @@ class Othello:
                 if (not self.empty(x, y)) or self.check(x, y) == []:
                     continue
                 else:
-                    possible.append([x, y])
+                    possible.append((x, y))
         
         return possible
 
@@ -94,7 +94,7 @@ class Othello:
         for x in range(BOARD_SIZE):
             print(x + 1, end = " ")
             for y in range(BOARD_SIZE):
-                if [x, y] in possible:
+                if (x, y) in possible:
                     print("*", end = " ")
                 elif self.grid[x][y] == BLACK:
                     print("◯", end = " ")
