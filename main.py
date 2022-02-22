@@ -44,7 +44,7 @@ class Othello:
                     flippable.extend(tmp)
                     break
                 else:
-                    tmp.append([nx, ny])
+                    tmp.append((nx, ny))
 
                 depth += 1
         
