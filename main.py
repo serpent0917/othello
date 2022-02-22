@@ -124,35 +124,39 @@ class Othello:
         else:
             print("Draw!")
 
-othello = Othello()
-
-while True:
-    othello.display()
-
-    if othello.end():
-        othello.judge()
-        break
+def main():
+    othello = Othello()
 
     while True:
-        possible = othello.possible_discs()
-        if possible == []:
-            if othello.player == BLACK:
-                print("Black: pass")
-            else:
-                print("White: pass")
-            othello.player *= -1
+        othello.display()
+
+        if othello.end():
+            othello.judge()
             break
 
-        if othello.player == BLACK:
-            s = input("Black: ")
-        else:
-            s = input("White: ")
-        
-        if s == "exit":
-            exit()
-        
-        x, y = int(s[1]) - 1, ord(s[0]) - ord("a")
-        if othello.put(x, y):
-            break
-        else:
-            print("Invalid input. Please try again.")
+        while True:
+            possible = othello.possible_discs()
+            if possible == []:
+                if othello.player == BLACK:
+                    print("Black: pass")
+                else:
+                    print("White: pass")
+                othello.player *= -1
+                break
+
+            if othello.player == BLACK:
+                s = input("Black: ")
+            else:
+                s = input("White: ")
+            
+            if s == "exit":
+                exit()
+            
+            x, y = int(s[1]) - 1, ord(s[0]) - ord("a")
+            if othello.put(x, y):
+                break
+            else:
+                print("Invalid input. Please try again.")
+
+if __name__ == "__main__":
+    main()
