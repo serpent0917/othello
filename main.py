@@ -11,14 +11,14 @@ DIRECTION = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1
 
 class Othello:
     def __init__(self):
-        self.grid = [[0] * BOARD_SIZE for _ in range(BOARD_SIZE)]
+        self.grid = [[EMPTY] * BOARD_SIZE for _ in range(BOARD_SIZE)]
         self.grid[3][3] = WHITE
         self.grid[3][4] = BLACK
         self.grid[4][3] = BLACK
         self.grid[4][4] = WHITE
 
         self.player = BLACK
-        self.cnt = [0, 2, 2]  # [0, 黒の石の数, 白の石の数]
+        self.count = [-1, 2, 2]  # [-1(使用しない), 黒の石の数, 白の石の数]
 
     def inside(self, x, y):
         return 0 <= x < BOARD_SIZE and 0 <= y < BOARD_SIZE
@@ -71,11 +71,11 @@ class Othello:
             return False
         
         self.grid[x][y] = self.player
-        self.cnt[self.player] += 1
+        self.count[self.player] += 1
         for x, y in flippable:
             self.flip(x, y)
-            self.cnt[self.player] += 1
-            self.cnt[-self.player] -= 1
+            self.count[self.player] += 1
+            self.count[-self.player] -= 1
         self.player *= -1
 
         return True
@@ -116,10 +116,10 @@ class Othello:
             return False
     
     def judge(self):
-        print("Black: {} - White: {}".format(self.cnt[BLACK], self.cnt[WHITE]))
-        if self.cnt[BLACK] > self.cnt[WHITE]:
+        print("Black: {} - White: {}".format(self.count[BLACK], self.count[WHITE]))
+        if self.count[BLACK] > self.count[WHITE]:
             print("Black won!")
-        elif self.cnt[BLACK] < self.cnt[WHITE]:
+        elif self.count[BLACK] < self.count[WHITE]:
             print("White won!")
         else:
             print("Draw!")
