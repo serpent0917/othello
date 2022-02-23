@@ -62,7 +62,7 @@ class Othello:
         
         return possible
 
-    def put(self, x, y):
+    def put_disc(self, x, y):
         if (not self.inside(x, y)) or (not self.empty(x, y)):
             return False
         
@@ -73,14 +73,14 @@ class Othello:
         self.grid[x][y] = self.player
         self.count[self.player] += 1
         for x, y in flippable:
-            self.flip(x, y)
+            self.flip_disc(x, y)
             self.count[self.player] += 1
             self.count[-self.player] -= 1
         self.player *= -1
 
         return True
     
-    def flip(self, x, y):
+    def flip_disc(self, x, y):
         self.grid[x][y] *= -1
     
     def display(self):
@@ -153,7 +153,7 @@ def main():
                 exit()
             
             x, y = int(s[1]) - 1, ord(s[0]) - ord("a")
-            if othello.put(x, y):
+            if othello.put_disc(x, y):
                 break
             else:
                 print("Invalid input. Please try again.")
