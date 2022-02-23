@@ -76,12 +76,15 @@ class Othello:
             self.flip_disc(x, y)
             self.count[self.player] += 1
             self.count[-self.player] -= 1
-        self.player *= -1
+        self.change_player()
 
         return True
     
     def flip_disc(self, x, y):
         self.grid[x][y] *= -1
+
+    def change_player(self):
+        self.player *= -1
     
     def display(self):
         possible = self.possible_coordinates()
@@ -107,12 +110,12 @@ class Othello:
     def end(self):
         if self.possible_coordinates() != []:
             return False
-        self.player *= -1
+        self.change_player()
         if self.possible_coordinates() == []:
-            self.player *= -1
+            self.change_player()
             return True
         else:
-            self.player *= -1
+            self.change_player()
             return False
     
     def judge(self):
